@@ -6,6 +6,6 @@ class DummyInput
   end
   
   def gets
-    @messages.shift
+    @messages.shift || ""
   end
 end

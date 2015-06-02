@@ -1,14 +1,15 @@
 module OkNokBattleships
   class Game
-    def initialize(input, output)
-      @input, @output = input, output
+    def initialize(input, output, quitter)
+      @ui = Ui.new input, output, quitter
+      @ai = Ai.new
+      @player_grid = Grid.new
+      @ai_grid = Grid.new
     end
     
     def begin
-      @output.puts("Welcome to OkNokBattleships!")
-      @output.puts("What is your name?")
-      name = @input.gets
-      @output.puts("Hi #{name}!")
+      @ui.welcome
+      @ui.request_name      
     end
   end
 end

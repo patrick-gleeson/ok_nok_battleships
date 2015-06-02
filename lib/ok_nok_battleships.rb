@@ -1,2 +1,6 @@
 require 'ok_nok'
-require 'ok_nok_battleships/game'
+require_relative 'ok_nok_battleships/game'
+require_relative 'ok_nok_battleships/grid'
+require_relative 'ok_nok_battleships/ui'
+require_relative 'ok_nok_battleships/ai'
+require_relative 'ok_nok_battleships/quitter'

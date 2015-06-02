@@ -15,4 +15,11 @@ Feature: Welcome
     And I will enter "Joe" when prompted
     When I start a new game
     Then I should see "Hi Joe!" last
+    
+  Scenario: Quit when prompted for name
+    Given I have not started playing
+    And I will enter "exit" when prompted
+    When I start a new game
+    Then I should see "Bye!"
+    And the application should exit
   
