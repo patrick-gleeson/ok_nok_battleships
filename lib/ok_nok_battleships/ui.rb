@@ -16,6 +16,8 @@ module OkNokBattleships
       @output.puts("Hi #{@name}!")
     end
     
+    private
+    
     def get_input_or_exit
       input = @input.gets.chomp
       if EXIT_MESSAGES.include? input

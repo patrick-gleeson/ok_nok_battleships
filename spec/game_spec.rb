@@ -4,46 +4,19 @@ module OkNokBattleships
   describe Game do
     
     before(:each) do
-      @input = double('input').as_null_object
-      @output = double('output').as_null_object
-      @quitter = double('quitter').as_null_object
-      @game = Game.new(@input, @output, @quitter)
+      @ui = double('ui').as_null_object
+      expect(Ui).to receive(:new).and_return(@ui)
+      @game = Game.new(nil, nil, nil)
     end
     
     describe "#begin" do
       it "displays a welcome message" do
-        expect(@output).to receive(:puts).with("Welcome to OkNokBattleships!")
-        
+        expect(@ui).to receive(:welcome)        
         @game.begin
       end
       
       it "asks for the user's name" do
-        expect(@output).to receive(:puts).with("What is your name?")
-        expect(@input).to receive(:gets)
-        
-        @game.begin
-      end
-      
-      it "greets the user by name" do
-        expect(@input).to receive(:gets).and_return("Joe")
-        expect(@output).to receive(:puts).with("Hi Joe!")
-        
-        @game.begin
-      end
-      
-      it "exits if user types 'exit'" do
-        expect(@input).to receive(:gets).and_return("exit")
-        expect(@output).to receive(:puts).with("Bye!")
-        expect(@quitter).to receive(:quit)
-        
-        @game.begin
-      end
-      
-      it "exits if user types 'quit'" do
-        expect(@input).to receive(:gets).and_return("quit")
-        expect(@output).to receive(:puts).with("Bye!")
-        expect(@quitter).to receive(:quit)
-        
+        expect(@ui).to receive(:request_name)
         @game.begin
       end
     end
