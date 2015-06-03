@@ -47,5 +47,19 @@ module OkNokBattleships
         @ui.request_name
       end
     end
+    
+    describe "#notify_computer_grid_construction_starting" do
+      it "tells the user what's happening" do
+        expect(@output).to receive(:puts).with("Creating computer grid...")        
+        @ui.notify_computer_grid_construction_starting
+      end
+    end
+    
+    describe "#notify_computer_grid_construction_complete" do
+      it "tells the user what's happening" do
+        expect(@output).to receive(:puts).with("Computer grid created!")        
+        @ui.notify_computer_grid_construction_complete
+      end
+    end
   end
 end

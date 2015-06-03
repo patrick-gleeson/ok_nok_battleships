@@ -9,6 +9,11 @@ When(/^I start a new game$/) do
   @game.begin
 end
 
+When(/^I start a new game with name "([^"]*)"$/) do |name|
+  @input.messages << name
+  @game.begin
+end
+
 Then(/^the application should exit$/) do
   expect(@quitter).to have_received(:quit)
 end

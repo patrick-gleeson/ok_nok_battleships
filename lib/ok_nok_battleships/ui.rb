@@ -16,6 +16,14 @@ module OkNokBattleships
       @output.puts("Hi #{@name}!")
     end
     
+    def notify_computer_grid_construction_starting
+      @output.puts("Creating computer grid...")
+    end
+    
+    def notify_computer_grid_construction_complete
+      @output.puts("Computer grid created!")
+    end
+    
     private
     
     def get_input_or_exit

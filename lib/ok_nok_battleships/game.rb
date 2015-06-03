@@ -10,15 +10,17 @@ module OkNokBattleships
       @ui.request_name
       
       construct_computer_grid
-      construct_player_grid
-      
-      run_game_loop   
+      construct_player_grid 
+      run_game_loop        
     end
     
-    def construct_computer_grid      
+    def construct_computer_grid 
+      @ui.notify_computer_grid_construction_starting
+      @computer_grid = Grid.new(@ai)
+      @ui.notify_computer_grid_construction_complete
     end
     
-    def construct_player_grid      
+    def construct_player_grid 
     end
     
     def run_game_loop      
