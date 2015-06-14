@@ -5,9 +5,12 @@ module OkNokBattleships
     
     before(:each) do
       @ui = double('ui').as_null_object
-      expect(Ui).to receive(:new).and_return(@ui)
+      allow(Ui).to receive(:new).and_return(@ui)
       @ai = double('ai').as_null_object
-      expect(Ai).to receive(:new).and_return(@ai)
+      allow(Ai).to receive(:new).and_return(@ai)      
+      @grid_maker = double('grid_maker').as_null_object
+      allow(GridMaker).to receive(:new).and_return(@grid_maker)      
+      
       @game = Game.new(nil, nil, nil)
     end
     
@@ -35,7 +38,7 @@ module OkNokBattleships
       end
             
       it "builds a grid" do
-        expect(Grid).to receive(:new)
+        expect(@grid_maker).to receive(:make_grid)
         @game.construct_computer_grid
       end   
         

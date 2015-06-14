@@ -16,7 +16,8 @@ module OkNokBattleships
     
     def construct_computer_grid 
       @ui.notify_computer_grid_construction_starting
-      @computer_grid = Grid.new(@ai)
+      computer_grid_maker = GridMaker.new(@ai)
+      @computer_grid = computer_grid_maker.make_grid
       @ui.notify_computer_grid_construction_complete
     end
     
